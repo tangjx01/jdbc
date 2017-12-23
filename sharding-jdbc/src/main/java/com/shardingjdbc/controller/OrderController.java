@@ -26,16 +26,19 @@ public class OrderController {
 	public void init(){
 		System.out.println("---------------");
 		
-		/*orderService.createIfNotExistsTable();
+		orderService.dropTable();
+		orderItemService.dropTable();
+		
+		orderService.createIfNotExistsTable();
 		orderItemService.createIfNotExistsTable();
 		orderService.truncateTable();
-		orderItemService.truncateTable();*/
+		orderItemService.truncateTable();
 		
-		/*List<Long> orderIds = new ArrayList<>(10);
+		List<Long> orderIds = new ArrayList<>(10);
         System.out.println("1.Insert--------------");
         for (int i = 0; i < 10; i++) {
             Order order = new Order();
-            order.setUserId(54);
+            order.setUserId(57);
             order.setStatus("INSERT_TEST");
             orderService.insert(order);
             long orderId = order.getOrderId();
@@ -43,11 +46,12 @@ public class OrderController {
             
             OrderItem item = new OrderItem();
             item.setOrderId(orderId);
-            item.setUserId(54);
+            item.setUserId(57);
             item.setStatus("INSERT_TEST");
             orderItemService.insert(item);
-        }*/
-		List<Order> query = orderService.query(52);
+        }
+		
+		List<Order> query = orderService.query(54);
 		for (Order order : query) {
 			System.out.println(order.getStatus());
 		}
