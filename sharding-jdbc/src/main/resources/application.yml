@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  context-path: /
+    
+mybatis:
+  config-location: classpath:META-INF/mybatis-config.xml
+  
+spring:
+  profiles:
+    active: sharding-masterslave #分表分库+主重分离
+    #active: sharding-tbl #只分表，不分库
+    #active: sharding-db #只分库
+    #active: masterslave #主重分离 但不分表分库
+    #active: sharding #分表分库 但主重不分离
+        

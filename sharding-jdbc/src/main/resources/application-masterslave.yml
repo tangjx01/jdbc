@@ -1,0 +1,22 @@
+sharding:
+  jdbc:
+    datasource:
+      names: ds_master,ds_slave_0
+      ds_master:
+         type: org.apache.commons.dbcp.BasicDataSource
+         driver-class-name: com.mysql.jdbc.Driver
+         url: jdbc:mysql://13.58.107.166:3306/pay?useUnicode=true&characterEncoding=utf-8&useSSL=true
+         username: root
+         password: tangJ#8x2@3434343x
+      ds_slave_0:
+         type: org.apache.commons.dbcp.BasicDataSource
+         driver-class-name: com.mysql.jdbc.Driver
+         url: jdbc:mysql://13.58.107.166:3306/pay01?useUnicode=true&characterEncoding=utf-8&useSSL=true
+         username: root
+         password: tangJ#8x2@3434343x
+    config:
+      masterslave:
+        load-balance-algorithm-type: round_robin
+        name: ds_ms
+        master-data-source-name: ds_master
+        slave-data-source-names: ds_master,ds_slave_0
