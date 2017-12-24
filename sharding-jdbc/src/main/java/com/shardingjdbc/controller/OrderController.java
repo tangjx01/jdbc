@@ -63,11 +63,20 @@ public class OrderController {
 	}
 
 	@RequestMapping(value = "user")
-	public void user() {
-		for (int i = 0; i < 10; i++) {
+	public void user(){
+		for (int i = 0; i < 1; i++) {
 			User user = new User();
 			user.setName("tang" + i);
-			userService.insert(user);
+			try {
+				userService.insert(user);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			/*if(i == 5){
+				System.out.println("exception -----");
+				throw new NullPointerException();
+			}*/
 		}
 
 		List<User> query = userService.queryAll();

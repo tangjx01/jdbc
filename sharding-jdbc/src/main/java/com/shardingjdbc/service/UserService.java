@@ -6,7 +6,7 @@ import com.shardingjdbc.entity.User;
 
 public interface UserService {
 	
-	long insert(User user);
+	long insert(User user)  throws Exception;
 	
 	List<User> queryAll();
 }
